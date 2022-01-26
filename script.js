@@ -1,57 +1,73 @@
-const mainTitle = document.querySelector('.main-title')
-const navBarElems = document.querySelector('body > header > nav')
+/*jslint browser maxlen:80 */
+/*global window */
 
-const mainContent = document.querySelectorAll('#content')
+const mainTitle = document.querySelector('.main-title');
+const navBarElems = document.querySelector('body > header > nav');
 
-function fadeIn() {
-    const elementsToFade = document.querySelectorAll(".to-fade")
-    if (elementsToFade !== null) {
-        elementsToFade.forEach(elem => {
-            const distInView = (elem.getBoundingClientRect().bottom - (elem.offsetHeight) / 2) - window.innerHeight
+function toMove(toClass, inClass) {
+    "use strict";
+
+    const elementsToMove = document.querySelectorAll(toClass);
+
+    if (elementsToMove !== null) {
+        elementsToMove.forEach(function (elem) {
+            const distInView = (
+                elem.getBoundingClientRect().bottom - (elem.offsetHeight) / 2
+            ) - window.innerHeight;
             if (distInView < 0) {
-                elem.classList.add("fade-in")
+                elem.classList.add(inClass);
             } else {
-                elem.classList.remove("fade-in")
+                elem.classList.remove(inClass);
             }
-        })
+        });
     }
 }
 
 function scrollHandler() {
-    fadeIn()
-    const y = window.scrollY
-    const titlePos = mainTitle.getBoundingClientRect()
+    "use strict";
+
+    toMove('.to-fade', 'fade-in');
+    toMove('.to-grow', 'grow-in');
+    toMove('.to-slide', 'slide-in');
+
+    const y = window.scrollY;
+    const titlePos = mainTitle.getBoundingClientRect();
 
     if (titlePos.bottom > 0) {
-        const distanceToTop = window.pageYOffset + titlePos.top
-        const elementHeight = mainTitle.offsetHeight
-        const opacity = 1 - ((y - distanceToTop) / elementHeight) * 2
+        const distanceToTop = window.pageYOffset + titlePos.top;
+        const elementHeight = mainTitle.offsetHeight;
+        const opacity = 1 - ((y - distanceToTop) / elementHeight) * 2;
 
         if (opacity > 0) {
-            mainTitle.style.letterSpacing = (y * 0.005 <= 0.1 ? 0.1 : y * 0.005) * 2 + 'em'
-            mainTitle.style.opacity = opacity
+            const pixelsSpacing = (y * 0.005 <= 0.1
+                ? 0.1
+                : y * 0.005);
+            mainTitle.style.letterSpacing = (pixelsSpacing * 2) + 'em';
+            mainTitle.style.opacity = opacity;
         }
     }
 }
 
-scrollHandler()
+scrollHandler();
 
-window.addEventListener('scroll', scrollHandler)
+window.addEventListener('scroll', scrollHandler);
 
 function switchNavBar() {
-    const header = document.querySelector('.hamburger').parentNode.classList
+    "use strict";
+    const header = document.querySelector('.hamburger').parentNode.classList;
 
     if (header.contains('slide-in') || header.contains('to-cross')) {
-        header.remove('slide-in')
-        header.remove('to-cross')
-        navBarElems.classList.remove('slide-elements')
+        header.remove('slide-in');
+        header.remove('to-cross');
+        navBarElems.classList.remove('slide-elements');
     } else {
-        header.add('slide-in')
-        header.add('to-cross')
-        navBarElems.classList.add('slide-elements')
+        header.add('slide-in');
+        header.add('to-cross');
+        navBarElems.classList.add('slide-elements');
     }
 }
 
-document.querySelectorAll('nav a').forEach(a => {
-    a.onclick = switchNavBar
-})
+document.querySelectorAll('nav a').forEach(function (a) {
+    "use strict";
+    a.onclick = switchNavBar;
+});
