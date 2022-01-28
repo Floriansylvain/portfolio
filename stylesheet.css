@@ -77,7 +77,6 @@ h2 {
     letter-spacing: 2px;
     padding-bottom: 10px;
     border-bottom: 2px solid #101010;
-    transition: transform 200ms, text-shadow 200ms;
 }
 
 h2:first-letter {
@@ -186,11 +185,6 @@ a {
     text-shadow: #253622 10px 10px 10px;
 }
 
-h2:hover {
-    transform: translateX(-2px) translateY(-2px);
-    text-shadow: #253622 3px 3px 5px;
-}
-
 .to-fade {
     opacity: 0;
     transition: opacity 1000ms;
@@ -201,7 +195,7 @@ h2:hover {
 }
 
 #content > div {
-    padding: 55px 10% 55px 10%;
+    padding: 55px 10%;
 }
 
 #content > div:nth-child(2n-1) {
@@ -243,11 +237,29 @@ h2:hover {
 #education > div, #experience > div  {
     transform: translateX(-150%);
     transition: transform 200ms;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 #education h3, #experience h3 {
     font-variation-settings: 'wght' 600;
+    margin-bottom: 5px;
+}
+
+#education p, #experience p {
+    position: relative;
+    margin-top: 0;
+}
+
+#education p + p::before, #experience p + p::before {
+    content: "\201C";
+
+    position: absolute;
+    top: 25px;
+    left: -35px;
+
+    font-family: Overpass;
+    font-size: 52px;
+    line-height: 0;
 }
 
 #education > div:last-child, #experience > div:last-child {
@@ -259,7 +271,7 @@ h2:hover {
 }
 
 .degree {
-    font-variation-settings: 'wght' 500;
+    font-variation-settings: 'wght' 400;
 }
 
 .time-range {

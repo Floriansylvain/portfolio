@@ -3,6 +3,7 @@
 
 const mainTitle = document.querySelector('.main-title');
 const navBarElems = document.querySelector('body > header > nav');
+const contentElems = document.querySelectorAll('#content > div, .main-title');
 
 function toMove(toClass, inClass) {
     "use strict";
@@ -16,19 +17,16 @@ function toMove(toClass, inClass) {
             ) - window.innerHeight;
             if (distInView < 0) {
                 elem.classList.add(inClass);
-            } else {
-                elem.classList.remove(inClass);
             }
+            // else {
+            //     elem.classList.remove(inClass);
+            // }
         });
     }
 }
 
-function scrollHandler() {
+function updateTitle() {
     "use strict";
-
-    toMove('.to-fade', 'fade-in');
-    toMove('.to-grow', 'grow-in');
-    toMove('.to-slide', 'slide-in');
 
     const y = window.scrollY;
     const titlePos = mainTitle.getBoundingClientRect();
@@ -46,6 +44,43 @@ function scrollHandler() {
             mainTitle.style.opacity = opacity;
         }
     }
+}
+
+function updateUrl() {
+    "use strict";
+
+    const elements = [];
+    let max = null;
+    let index = null;
+
+    contentElems.forEach(function (elem) {
+        const pos = elem.getBoundingClientRect().top;
+        if (pos <= 0) {
+            if (max === null || pos > max) {
+                max = pos;
+                index = Array.from(contentElems).indexOf(elem);
+            }
+            elements.push(elem);
+        }
+    });
+
+    if (elements[index] && !window.location.href.includes(elements[index].id)) {
+        const hash = 'index.html#' + elements[index].id;
+        console.log("pouet");
+        window.history.pushState(null, null, hash);
+    }
+}
+
+function scrollHandler() {
+    "use strict";
+
+    toMove('.to-fade', 'fade-in');
+    toMove('.to-grow', 'grow-in');
+    toMove('.to-slide', 'slide-in');
+
+    updateTitle();
+
+    updateUrl();
 }
 
 scrollHandler();
