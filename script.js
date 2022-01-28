@@ -66,8 +66,7 @@ function updateUrl() {
 
     if (elements[index] && !window.location.href.includes(elements[index].id)) {
         const hash = 'index.html#' + elements[index].id;
-        console.log("pouet");
-        window.history.pushState(null, null, hash);
+        window.history.replaceState(null, null, hash);
     }
 }
 
