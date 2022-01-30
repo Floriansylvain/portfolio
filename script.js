@@ -55,7 +55,7 @@ function updateUrl() {
 
     contentElems.forEach(function (elem) {
         const pos = elem.getBoundingClientRect().top;
-        if (pos <= 0) {
+        if (pos <= 50) {
             if (max === null || pos > max) {
                 max = pos;
                 index = Array.from(contentElems).indexOf(elem);
