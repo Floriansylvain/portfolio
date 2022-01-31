@@ -36,9 +36,11 @@ header {
 }
 
 nav {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
+
     font-size: 1.6em;
     letter-spacing: 4px;
 }
@@ -49,15 +51,33 @@ nav a:first-letter {
 }
 
 nav a {
+    position: relative;
+
     font-family: Manrope;
 
-    transform: translateX(-100%);
     opacity: 0;
+
+    transform: translateX(-100%);
     transition: transform 600ms, opacity 600ms, letter-spacing 200ms;
 }
 
-nav a:hover {
-    letter-spacing: 6px;
+nav a::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+
+    background: #3AC414;
+
+    width: 0;
+    height: 3px;
+
+    transition: width 200ms ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 nav a:nth-child(0n+2) {
@@ -274,18 +294,22 @@ header:hover {
     font-size: smaller;
 }
 
-#projects {
-    display: grid;
-    gap: 30px;
+.projects-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-#projects > div {
+.projects-list > div {
     position: relative;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    width: 300px;
     height: 250px;
 
     border-radius: 0.5em;
@@ -293,7 +317,7 @@ header:hover {
     overflow: hidden;
 }
 
-#projects > div::before, #projects > div::after {
+.projects-list > div::before, .projects-list > div::after {
     content: '';
     position: absolute;
     top: 0;
@@ -302,26 +326,26 @@ header:hover {
     width: 100%;
     height: 100%;
 
-    background-color: #D6FFC9;
+    background-color: #fff;
 
     border-radius: inherit;
     transition: transform 500ms;
 }
 
-#projects > div::before {
+.projects-list > div::before {
     transform: translate(-100%, -100%);
 }
 
-#projects > div::after {
+.projects-list > div::after {
     z-index: -1;
     transform: translate(100%, 100%);
 }
 
-#projects > div:hover::before {
+.projects-list > div:hover::before {
     transform: translate(-0.5em, -0.5em);
 }
 
-#projects > div:hover::after {
+.projects-list > div:hover::after {
     transform: translate(0, 0);
 }
 
@@ -333,10 +357,14 @@ header:hover {
     border-radius: inherit;
 
     cursor: pointer;
+
+    transform: translateX(-150%);
+    transition: transform 200ms;
 }
 
 #projects article:hover .plus-button {
     backdrop-filter: blur(2px);
+    background-color: #0005;
     box-shadow: inset #121212 0 0 100px;
 }
 
@@ -360,7 +388,8 @@ header:hover {
 
 .plus-button svg {
     opacity: 0;
-    fill: #CAEBC0;
+    fill: #fff;
+    filter: drop-shadow(0 0 10px #0003);
     width: 20%;
     height: 20%;
     transition: opacity 200ms;
@@ -400,6 +429,14 @@ header:hover {
 
 #riverwood:hover {
     background: center / cover no-repeat url('assets/imgs/Riverwood.gif');
+}
+
+#thesesFr {
+    background: center / contain no-repeat url('assets/imgs/ThesesFr.png'), center / cover url('assets/imgs/ThesesFr_blur.png');
+}
+
+#thesesFr:hover {
+    background: center / cover no-repeat url('assets/imgs/ThesesFr.gif');
 }
 
 .degree {

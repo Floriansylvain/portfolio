@@ -5,16 +5,15 @@ const mainTitle = document.querySelector('.main-title');
 const navBarElems = document.querySelector('body > header > nav');
 const contentElems = document.querySelectorAll('#content > div, .main-title');
 
-function toMove(toClass, inClass) {
+function toAddClass(toClass, inClass) {
     "use strict";
 
-    const elementsToMove = document.querySelectorAll(toClass);
+    const elementsToAddClass = document.querySelectorAll(toClass);
 
-    if (elementsToMove !== null) {
-        elementsToMove.forEach(function (elem) {
-            const distInView = (
-                elem.getBoundingClientRect().bottom - (elem.offsetHeight) / 2
-            ) - window.innerHeight;
+    if (elementsToAddClass !== null) {
+        elementsToAddClass.forEach(function (elem) {
+            const distInView = elem.getBoundingClientRect().top
+                    - window.innerHeight + 100;
             if (distInView < 0) {
                 elem.classList.add(inClass);
             }
@@ -73,9 +72,9 @@ function updateUrl() {
 function scrollHandler() {
     "use strict";
 
-    toMove('.to-fade', 'fade-in');
-    toMove('.to-grow', 'grow-in');
-    toMove('.to-slide', 'slide-in');
+    toAddClass('.to-fade', 'fade-in');
+    toAddClass('.to-grow', 'grow-in');
+    toAddClass('.to-slide', 'slide-in');
 
     updateTitle();
 
