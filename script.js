@@ -1,9 +1,21 @@
 /*jslint browser maxlen:80 */
 /*global window */
 
+const LARGE = 992;
+
 const mainTitle = document.querySelector('.main-title');
+const navBar = document.querySelector('body > header');
 const navBarElems = document.querySelector('body > header > nav');
+const scrollToTop = document.querySelector('#scrollToTop');
 const contentElems = document.querySelectorAll('#content > div, .main-title');
+
+const backgroundHider = document.querySelector('.background-hider');
+const projectsContentList = document.querySelectorAll('.article-content');
+
+const projectsIDs = Array.from(projectsContentList)
+    .map((project) => project.id);
+
+let lastScrollTop = window.pageYOffset;
 
 function toAddClass(toClass, inClass) {
     "use strict";
@@ -63,10 +75,50 @@ function updateUrl() {
         }
     });
 
-    if (elements[index] && !window.location.href.includes(elements[index].id)) {
+    if (elements[index] &&
+            !projectsIDs.includes(elements[index].id) &&
+            !window.location.href.includes(elements[index].id)) {
         const hash = 'index.html#' + elements[index].id;
         window.history.replaceState(null, null, hash);
     }
+}
+
+function switchArticle(article) {
+    "use strict";
+
+    if (backgroundHider.classList.contains('bgh-off')) {
+        backgroundHider.classList.remove('bgh-off');
+    } else {
+        backgroundHider.classList.add('bgh-off');
+    }
+
+    if (article !== null) {
+        article.style.display = 'flex';
+    } else {
+        projectsContentList.forEach(function (art) {
+            art.style.display = 'none';
+        });
+    }
+}
+
+function updateScrollDirectionElems() {
+    "user strict";
+
+    const scrollTop = window.pageYOffset;
+    let opacity = "100%";
+    let visibility = "visible";
+
+    if (scrollTop > lastScrollTop && window.innerWidth >= LARGE) {
+        opacity = "50%";
+    }
+
+    if (scrollTop < 100) {
+        visibility = "hidden";
+    }
+
+    navBar.style.opacity = opacity;
+    scrollToTop.style.visibility = visibility;
+    lastScrollTop = scrollTop;
 }
 
 function scrollHandler() {
@@ -75,6 +127,8 @@ function scrollHandler() {
     toAddClass('.to-fade', 'fade-in');
     toAddClass('.to-grow', 'grow-in');
     toAddClass('.to-slide', 'slide-in');
+
+    updateScrollDirectionElems();
 
     updateTitle();
 
@@ -103,4 +157,11 @@ function switchNavBar() {
 document.querySelectorAll('nav a').forEach(function (a) {
     "use strict";
     a.onclick = switchNavBar;
+});
+
+document.querySelectorAll('.projects-list article').forEach(function (a) {
+    "use strict";
+    a.onclick = function () {
+        switchArticle(document.getElementById(a.classList[0]));
+    };
 });

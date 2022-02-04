@@ -31,8 +31,9 @@ header {
     width: 100%;
     padding: 10px 10px 10px 110px;
     background-color: #253622;
+    box-shadow: #0003 0 0 10px;
     transform: translateY(-100%);
-    transition: transform 200ms ease-in-out, gap 200ms ease-in-out;
+    transition: transform 200ms ease-in-out, gap 200ms ease-in-out, opacity 200ms;
 }
 
 nav {
@@ -58,7 +59,7 @@ nav a {
     opacity: 0;
 
     transform: translateX(-100%);
-    transition: transform 600ms, opacity 600ms, letter-spacing 200ms;
+    transition: transform 700ms, opacity 700ms;
 }
 
 nav a::after {
@@ -81,16 +82,44 @@ nav a:hover::after {
 }
 
 nav a:nth-child(0n+2) {
-    transition: transform 500ms, opacity 500ms, letter-spacing 200ms;
+    transition: transform 600ms, opacity 600ms;
 }
 nav a:nth-child(0n+3) {
-    transition: transform 400ms, opacity 400ms, letter-spacing 200ms;
+    transition: transform 500ms, opacity 500ms;
 }
 nav a:nth-child(0n+4) {
-    transition: transform 300ms, opacity 300ms, letter-spacing 200ms;
+    transition: transform 400ms, opacity 400ms;
 }
 nav a:nth-child(0n+5) {
-    transition: transform 200ms, opacity 200ms, letter-spacing 200ms;
+    transition: transform 300ms, opacity 300ms;
+}
+nav a:nth-child(0n+6) {
+    transition: transform 200ms, opacity 200ms;
+}
+
+footer {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    gap: 25px;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    background: #253622;
+}
+
+footer svg {
+    width: 25px;
+    height: 25px;
+    fill: #121212;
+    transition: fill 200ms;
+}
+
+footer svg:hover {
+    fill: #3AC414;
 }
 
 h2 {
@@ -99,7 +128,7 @@ h2 {
     border-bottom: 2px solid #121212;
 }
 
-h2:first-letter {
+h2:first-letter, .article-content h3:first-letter {
     color: #3AC414;
     font-variation-settings: 'wght' 600;
 }
@@ -261,7 +290,9 @@ header:hover {
 #education > div, #experience > div  {
     transform: translateX(-150%);
     transition: transform 200ms;
-    margin-bottom: 50px;
+    margin: 0 auto 50px auto;
+    width: 100%;
+    max-width: 900px;
 }
 
 #education h3, #experience h3 {
@@ -290,7 +321,7 @@ header:hover {
     margin-bottom: 0;
 }
 
-#education p + p {
+#education p + p, #experience p + p {
     font-size: smaller;
 }
 
@@ -395,47 +426,116 @@ header:hover {
     transition: opacity 200ms;
 }
 
+.background-hider {
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0005;
+    transition: z-index 200ms, background 200ms;
+}
+
+.bgh-off {
+    z-index: -1;
+    background: #0000;
+}
+
 .article-content {
+    position: fixed;
+    z-index: 5;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: Calc(100vw - 25px);
+    max-width: 80%;
+    max-height: Calc(100vh - 150px);
+
+    overflow-y: scroll;
+
+    padding: 10% !important;
+
+    color: #121212;
+
+    background: #fff !important;
+    box-shadow: #12121233 0 0 25px;
+
+    border-radius: 0.5em;
+
     display: none;
+    flex-direction: column;
 }
 
-#pong2D {
-    background: center / contain no-repeat url('assets/imgs/Pong2D.png'), center / cover url('assets/imgs/Pong2D_blur.png');
+.article-content p {
+    margin-top: 0;
 }
 
-#pong2D:hover {
+.article-content img {
+    margin: auto;
+    max-width: 80%;
+}
+
+.article-content a {
+    color: #121212;
+    letter-spacing: 2px;
+    transition: color 200ms;
+    margin: 5px 0 5px 0;
+    cursor: pointer;
+}
+
+.article-content h3 {
+    font-variation-settings: "wght" 600;
+}
+
+.article-content a:hover {
+    color: #3AC414;
+}
+
+.pong2D {
+    background: center / contain no-repeat url('assets/imgs/Pong2D.png'),
+                center / cover url('assets/imgs/Pong2D_blur.png');
+}
+
+.pong2D:hover {
     background: center / cover no-repeat url('assets/imgs/Pong2D.gif');
 }
 
-#pong3D {
-    background: center / contain no-repeat url('assets/imgs/Pong3D.png'), center / cover url('assets/imgs/Pong3D_blur.png');
+.pong3D {
+    background: center / contain no-repeat url('assets/imgs/Pong3D.png'),
+                center / cover url('assets/imgs/Pong3D_blur.png');
 }
 
-#pong3D:hover {
+.pong3D:hover {
     background: center / cover no-repeat url('assets/imgs/Pong3D.gif');
 }
 
-#risitasBot {
-    background: center / contain no-repeat url('assets/imgs/RisitasBot.png'), center / cover url('assets/imgs/RisitasBot_blur.png');
+.risitasBot {
+    background: center / contain no-repeat url('assets/imgs/RisitasBot.png'),
+                center / cover url('assets/imgs/RisitasBot_blur.png');
 }
 
-#risitasBot:hover {
+.risitasBot:hover {
     background: center / cover no-repeat url('assets/imgs/RisitasBot.gif');
 }
 
-#riverwood {
-    background: center / contain no-repeat url('assets/imgs/Riverwood.png'), center / cover url('assets/imgs/Riverwood_blur.png');
+.riverwood {
+    background: center / contain no-repeat url('assets/imgs/Riverwood.png'),
+                center / cover url('assets/imgs/Riverwood_blur.png');
 }
 
-#riverwood:hover {
+.riverwood:hover {
     background: center / cover no-repeat url('assets/imgs/Riverwood.gif');
 }
 
-#thesesFr {
-    background: center / contain no-repeat url('assets/imgs/ThesesFr.png'), center / cover url('assets/imgs/ThesesFr_blur.png');
+.thesesFr {
+    background: center / contain no-repeat url('assets/imgs/ThesesFr.png'),
+                center / cover url('assets/imgs/ThesesFr_blur.png');
 }
 
-#thesesFr:hover {
+.thesesFr:hover {
     background: center / cover no-repeat url('assets/imgs/ThesesFr.gif');
 }
 
@@ -446,4 +546,100 @@ header:hover {
 .time-range {
     font-size: smaller;
     font-variation-settings: 'wght' 300;
+}
+
+#contact p {
+    margin: 50px auto;
+    width: 100%;
+    max-width: 900px;
+}
+
+#contact a {
+    color: #CAEBC0;
+    font-variation-settings: 'wght' 600;
+}
+
+#scrollToTop {
+    display: flex;
+    position: fixed;
+    z-index: 20;
+    padding: 20px;
+    box-shadow: #0003 0 0 10px;
+    background: #3AC414;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    fill: white;
+    bottom: 25px;
+    left: 25px;
+    cursor: pointer;
+    transition: background-color 200ms, transform 200ms;
+    opacity: 80%;
+    backdrop-filter: blur(2px);
+}
+
+#scrollToTop:hover {
+    opacity: 100%;
+    transform: scale(1.05);
+}
+
+/* Large */
+@media (min-width: 992px) {
+    #content > div {
+        padding: 50px 20%;
+    }
+
+    .article-content {
+        padding: 50px !important;
+    }
+
+    #about img {
+        width: 225px;
+        height: 225px;
+    }
+
+    .block {
+        max-width: 900px;
+        margin: 50px auto;
+        flex-direction: row;
+    }
+
+    .block > p {
+        margin: 25px 50px;
+        padding: 0;
+        font-size: larger;
+    }
+
+    header {
+        transform: none;
+        padding: 10px;
+    }
+
+    header:hover {
+        opacity: 100% !important;
+        transform: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        gap: 25px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+    }
+
+    nav a {
+        opacity: 100%;
+        transform: none;
+    }
+
+    nav a:hover {
+        opacity: 100%;
+        transform: none;
+    }
 }
