@@ -99,7 +99,7 @@ nav a:nth-child(0n+6) {
 
 footer {
     position: relative;
-    z-index: 10;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
