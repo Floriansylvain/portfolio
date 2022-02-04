@@ -563,7 +563,7 @@ a {
 #scrollToTop {
     display: flex;
     position: fixed;
-    z-index: 20;
+    z-index: 3;
     padding: 20px;
     box-shadow: #0003 0 0 10px;
     background: #3AC414;
