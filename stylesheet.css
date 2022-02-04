@@ -476,6 +476,7 @@ header:hover {
 .article-content img {
     margin: auto;
     max-width: 80%;
+    max-height: 500px;
 }
 
 .article-content a {
