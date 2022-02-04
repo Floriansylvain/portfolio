@@ -186,9 +186,9 @@ a {
     background: #D6FFC9;
 }
 
-header:hover {
+/*header:hover {
     transform: translateY(calc(-100% + 25px));
-}
+}*/
 
 .to-cross .hamburger {
     gap: 0;
