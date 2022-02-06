@@ -19,7 +19,7 @@ body {
     margin: 0;
 
     color: #fff;
-    font-family: Manrope;
+    font-family: Manrope, 'sans-serif';
     font-variation-settings: 'wght' 500;
 
     background-color: #121212;
@@ -54,7 +54,7 @@ nav a:first-letter {
 nav a {
     position: relative;
 
-    font-family: Manrope;
+    font-family: Manrope, 'sans-serif';
 
     opacity: 0;
 
@@ -221,7 +221,7 @@ a {
 
     text-align: center;
 
-    font-family: Manrope;
+    font-family: Manrope, 'sans-serif';
     font-variation-settings: 'wght' 500;
     font-size: 2em;
     letter-spacing: 0.1em;
@@ -312,7 +312,7 @@ a {
     top: 25px;
     left: -35px;
 
-    font-family: Overpass;
+    font-family: Overpass, 'sans-serif';
     font-size: 52px;
     line-height: 0;
 }
