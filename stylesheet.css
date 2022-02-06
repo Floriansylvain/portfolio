@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'Manrope';
     src: url('assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Overpass';
     src: url('assets/fonts/OverpassMono-VariableFont_wght.ttf') format('truetype');
+    font-display: swap;
 }
 
 * {
