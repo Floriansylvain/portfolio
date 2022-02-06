@@ -450,8 +450,8 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: Calc(100vw - 25px);
-    max-width: 80%;
+    width: 95%;
+    max-width: 900px;
     max-height: Calc(100vh - 150px);
 
     overflow-y: scroll;
