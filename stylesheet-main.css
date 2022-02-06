@@ -231,6 +231,7 @@ a {
 }
 
 .main-title h1 {
+    white-space: nowrap;
     cursor: pointer;
     transition: text-shadow 200ms, transform 200ms;
 }
