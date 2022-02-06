@@ -1,0 +1,44 @@
+.pong2D {
+    background: center / contain no-repeat url('assets/imgs/Pong2D.webp'),
+                center / cover url('assets/imgs/Pong2D_blur.webp');
+}
+
+.pong2D:hover {
+    background: center / cover no-repeat url('assets/imgs/Pong2D-video.webp');
+}
+
+.pong3D {
+    background: center / contain no-repeat url('assets/imgs/Pong3D.webp'),
+                center / cover url('assets/imgs/Pong3D_blur.webp');
+}
+
+.pong3D:hover {
+    background: center / cover no-repeat url('assets/imgs/Pong3D-video.webp');
+}
+
+.risitasBot {
+    background: center / contain no-repeat url('assets/imgs/RisitasBot.webp'),
+                center / cover url('assets/imgs/RisitasBot_blur.webp');
+}
+
+.risitasBot:hover {
+    background: center / cover no-repeat url('assets/imgs/RisitasBot-video.webp');
+}
+
+.riverwood {
+    background: center / contain no-repeat url('assets/imgs/Riverwood.webp'),
+                center / cover url('assets/imgs/Riverwood_blur.webp');
+}
+
+.riverwood:hover {
+    background: center / cover no-repeat url('assets/imgs/Riverwood-video.webp');
+}
+
+.thesesFr {
+    background: center / contain no-repeat url('assets/imgs/ThesesFr.webp'),
+                center / cover url('assets/imgs/ThesesFr_blur.webp');
+}
+
+.thesesFr:hover {
+    background: center / cover no-repeat url('assets/imgs/ThesesFr-video.webp');
+}
