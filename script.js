@@ -17,17 +17,6 @@ const projectsIDs = Array.from(projectsContentList)
 
 let lastScrollTop = window.pageYOffset;
 
-function loadCSS() {
-    "use strict";
-    const stylesheet = document.createElement('link');
-    stylesheet.href = 'stylesheet.css';
-    stylesheet.rel = 'stylesheet';
-    stylesheet.type = 'text/css';
-    document.querySelector('head').appendChild(stylesheet);
-}
-
-loadCSS();
-
 function toAddClass(toClass, inClass) {
     "use strict";
 
