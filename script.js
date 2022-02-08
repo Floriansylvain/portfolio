@@ -15,7 +15,7 @@ const projectsContentList = document.querySelectorAll('.article-content');
 const projectsIDs = Array.from(projectsContentList)
     .map((project) => project.id);
 
-let lastScrollTop = window.pageYOffset;
+let lastScrollTop = window.scrollY;
 
 function loadCSS() {
     "use strict";
@@ -54,7 +54,7 @@ function updateTitle() {
     const titlePos = mainTitle.getBoundingClientRect();
 
     if (titlePos.bottom > 0) {
-        const distanceToTop = window.pageYOffset + titlePos.top;
+        const distanceToTop = window.scrollY + titlePos.top;
         const elementHeight = mainTitle.offsetHeight;
         const opacity = 1 - ((y - distanceToTop) / elementHeight) * 2;
 
@@ -115,7 +115,7 @@ function switchArticle(article) {
 function updateScrollDirectionElems() {
     "user strict";
 
-    const scrollTop = window.pageYOffset;
+    const scrollTop = window.scrollY;
     let opacity = "100%";
     let visibility = "visible";
 
