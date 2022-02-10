@@ -231,7 +231,6 @@ a {
 }
 
 .main-title h1 {
-    white-space: nowrap;
     cursor: pointer;
     transition: text-shadow 200ms, transform 200ms;
 }
@@ -540,6 +539,13 @@ a {
 #scrollToTop:hover {
     opacity: 100%;
     transform: scale(1.05);
+}
+
+/* Title fix  */
+@media (min-width: 522px) {
+    .main-title h1 {
+        white-space: nowrap;
+    }
 }
 
 /* Large */
