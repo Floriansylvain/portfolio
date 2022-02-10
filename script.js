@@ -15,18 +15,20 @@ const projectsContentList = document.querySelectorAll('.article-content');
 const projectsIDs = Array.from(projectsContentList)
     .map((project) => project.id);
 
+const stylesheets = ['stylesheet-main.css', 'stylesheet-imgs.css'];
+
 let lastScrollTop = window.scrollY;
 
 function loadCSS() {
     "use strict";
-    const stylesheet = document.createElement('link');
-    stylesheet.href = 'stylesheet-imgs.css';
-    stylesheet.rel = 'stylesheet';
-    stylesheet.type = 'text/css';
-    document.querySelector('head').appendChild(stylesheet);
+    stylesheets.forEach(function (stylesheet) {
+        const link = document.createElement('link');
+        link.href = stylesheet;
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        document.querySelector('head').appendChild(link);
+    });
 }
-
-loadCSS();
 
 function toAddClass(toClass, inClass) {
     "use strict";
@@ -176,3 +178,5 @@ document.querySelectorAll('.projects-list article').forEach(function (a) {
         switchArticle(document.getElementById(a.classList[0]));
     };
 });
+
+// loadCSS(); // Loading non-essential CSS when everything else is loaded.
