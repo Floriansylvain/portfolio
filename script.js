@@ -179,4 +179,4 @@ document.querySelectorAll('.projects-list article').forEach(function (a) {
     };
 });
 
-// loadCSS(); // Loading non-essential CSS when everything else is loaded.
+loadCSS(); // Loading non-essential CSS when everything else is loaded.
