@@ -249,16 +249,16 @@ a {
     opacity: 100%;
 }
 
-#content > div {
+#content > section {
     padding: 50px 10%;
 }
 
-#content > div:nth-child(2n-1) {
+#content > section:nth-child(2n-1) {
     color: #121212;
     background-color: #fff;
 }
 
-#content > div:nth-child(2n) > h2 {
+#content > section:nth-child(2n) > h2 {
     border-bottom: 2px solid #fff;
 }
 
