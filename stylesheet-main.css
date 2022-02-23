@@ -550,7 +550,7 @@ a {
 
 /* Large */
 @media (min-width: 992px) {
-    #content > div {
+    #content > section {
         padding: 50px 20%;
     }
 
