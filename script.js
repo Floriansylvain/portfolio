@@ -1,4 +1,4 @@
-/*jslint browser maxlen:80 */
+/*jslint browser */
 /*global window */
 
 const LARGE = 992;
@@ -7,7 +7,7 @@ const mainTitle = document.querySelector('.main-title');
 const navBar = document.querySelector('body > header');
 const navBarElems = document.querySelector('body > header > nav');
 const scrollToTop = document.querySelector('#scrollToTop');
-const contentElems = document.querySelectorAll('#content > div, .main-title');
+const contentElems = document.querySelectorAll('#content > section, .main-title');
 
 const backgroundHider = document.querySelector('.background-hider');
 const projectsContentList = document.querySelectorAll('.article-content');
