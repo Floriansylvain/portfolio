@@ -118,7 +118,7 @@ footer a, p {
     font-family: "Manrope";
 }
 
-footer .selected {
+.lang-selection .selected {
     text-decoration: underline;
 }
 
