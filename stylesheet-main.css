@@ -113,7 +113,7 @@ footer {
     background: #253622;
 }
 
-footer a, p {
+.lang-selection a, .lang-selection p {
     color: rgb(213, 213, 213);
     font-family: "Manrope";
 }
