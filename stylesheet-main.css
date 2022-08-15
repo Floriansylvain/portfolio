@@ -10,6 +10,13 @@
     font-display: swap;
 }
 
+:root {
+    --accent-color: #3AC414;
+    --main-color:  #253622;
+    --background-color: #121212;
+    --light-accent-color:  #CAEBC0;
+}
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -24,7 +31,7 @@ body {
     font-family: Manrope, sans-serif;
     font-variation-settings: 'wght' 500;
 
-    background-color: #121212;
+    background-color: var(--background-color);
 }
 
 header {
@@ -32,7 +39,7 @@ header {
     z-index: 10;
     width: 100%;
     padding: 10px 10px 10px 110px;
-    background-color: #253622;
+    background-color: var(--main-color);
     box-shadow: #0003 0 0 10px;
     transform: translateY(-100%);
     transition: transform 200ms ease-in-out, gap 200ms ease-in-out, opacity 200ms;
@@ -71,7 +78,7 @@ nav a::after {
     left: 0;
     bottom: -3px;
 
-    background: #3AC414;
+    background: var(--accent-color);
 
     width: 0;
     height: 3px;
@@ -110,7 +117,7 @@ footer {
     bottom: 0;
     width: 100%;
     height: 75px;
-    background: #253622;
+    background: var(--main-color);
 }
 
 .lang-selection a, .lang-selection p {
@@ -125,22 +132,22 @@ footer {
 footer svg {
     width: 25px;
     height: 25px;
-    fill: #121212;
+    fill: var(--background-color);
     transition: fill 200ms;
 }
 
 footer svg:hover {
-    fill: #3AC414;
+    fill: var(--accent-color);
 }
 
 h2 {
     letter-spacing: 2px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #121212;
+    border-bottom: 2px solid var(--background-color);
 }
 
 h2:first-letter, .article-content h3:first-letter {
-    color: #3AC414;
+    color: var(--accent-color);
     font-variation-settings: 'wght' 600;
 }
 
@@ -171,7 +178,7 @@ a {
     left: 50px;
     width: 50px;
     height: 50px;
-    background-color: #3AC414;
+    background-color: var(--accent-color);
     border-radius: 0 0 0.5em 0.5em;
 }
 
@@ -183,13 +190,13 @@ a {
     height: 100vh;
     bottom: 100%;
 
-    background-color: #3AC414;
+    background-color: var(--accent-color);
 }
 
 .hamburger > span {
     width: 35px;
     height: 5px;
-    background: #CAEBC0;
+    background: var(--light-accent-color);
     transition: transform 200ms ease-in-out, background 200ms ease-in-out;
 }
 
@@ -246,7 +253,7 @@ a {
 
 .main-title h1:hover {
     transform: translateX(-2.5px) translateY(-2.5px);
-    text-shadow: #253622 5px 5px 0;
+    text-shadow: var(--main-color) 5px 5px 0;
 }
 
 .to-fade {
@@ -263,7 +270,7 @@ a {
 }
 
 #content > section:nth-child(2n-1) {
-    color: #121212;
+    color: var(--background-color);
     background-color: #fff;
 }
 
@@ -407,7 +414,7 @@ a {
 #projects article:hover .plus-button {
     backdrop-filter: blur(2px);
     background-color: #0005;
-    box-shadow: inset #121212 0 0 100px;
+    box-shadow: inset var(--background-color) 0 0 100px;
 }
 
 #projects article:hover .plus-button svg {
@@ -469,10 +476,10 @@ a {
 
     padding: 10% !important;
 
-    color: #121212;
+    color: var(--background-color);
 
     background: #fff !important;
-    box-shadow: #12121233 0 0 25px;
+    box-shadow: var(--background-color)33 0 0 25px;
 
     border-radius: 0.5em;
 
@@ -491,7 +498,7 @@ a {
 }
 
 .article-content a {
-    color: #121212;
+    color: var(--background-color);
     letter-spacing: 2px;
     transition: color 200ms;
     margin: 5px 0 5px 0;
@@ -503,7 +510,7 @@ a {
 }
 
 .article-content a:hover {
-    color: #3AC414;
+    color: var(--accent-color);
 }
 
 .degree {
@@ -522,7 +529,7 @@ a {
 }
 
 #contact a {
-    color: #CAEBC0;
+    color: var(--light-accent-color);
     font-variation-settings: 'wght' 600;
 }
 
@@ -532,7 +539,7 @@ a {
     z-index: 3;
     padding: 20px;
     box-shadow: #0003 0 0 10px;
-    background: #3AC414;
+    background: var(--accent-color);
     border-radius: 50%;
     height: 60px;
     width: 60px;
@@ -543,6 +550,11 @@ a {
     transition: background-color 200ms, transform 200ms;
     opacity: 80%;
     backdrop-filter: blur(2px);
+}
+
+#landing-style-bar {
+    width: 10%;
+    background-color: ;
 }
 
 #scrollToTop:hover {
