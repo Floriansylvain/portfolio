@@ -552,11 +552,6 @@ a {
     backdrop-filter: blur(2px);
 }
 
-#landing-style-bar {
-    width: 10%;
-    background-color: ;
-}
-
 #scrollToTop:hover {
     opacity: 100%;
     transform: scale(1.05);
