@@ -1,14 +1,4 @@
-@font-face {
-    font-family: 'Manrope';
-    src: url('assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Overpass';
-    src: url('assets/fonts/OverpassMono-VariableFont_wght.ttf') format('truetype');
-    font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Overpass+Mono:wght@400;700&display=swap');
 
 :root {
     --accent-color: #3AC414;
@@ -555,6 +545,10 @@ a {
 #scrollToTop:hover {
     opacity: 100%;
     transform: scale(1.05);
+}
+
+strong, b {
+    font-weight: bold;
 }
 
 /* Title fix  */
